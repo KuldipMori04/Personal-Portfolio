@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-[#0a0a0f] text-[#e4e4e7] font-inter overflow-x-hidden;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 md:px-6 lg:px-8;
+  }
+  .gradient-text {
+    @apply bg-gradient-to-r from-[#6c5ce7] via-[#a29bfe] to-[#6c5ce7] bg-clip-text text-transparent;
+  }
+  .glass-card {
+    @apply bg-[#1a1a2e]/80 backdrop-blur-xl border border-white/10 shadow-2xl;
+  }
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight;
+  }
+  .section-subtitle {
+    @apply text-lg md:text-xl text-[#a0a0b0] max-w-2xl;
+  }
+  .card-dark {
+    @apply bg-[#14141f] border border-white/5 rounded-2xl hover:border-primary/30 transition-all duration-300;
+  }
+  .btn-primary-dark {
+    @apply px-8 py-4 bg-gradient-to-r from-[#6c5ce7] to-[#a29bfe] text-white rounded-full font-semibold 
+           shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-all duration-300 
+           hover:scale-105 hover:shadow-2xl;
+  }
+  .btn-outline-dark {
+    @apply px-8 py-4 border-2 border-[#6c5ce7] text-[#6c5ce7] rounded-full font-semibold
+           hover:bg-[#6c5ce7] hover:text-white transition-all duration-300 hover:scale-105;
+  }
+}
+
+/* Scroll animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0f;
+}
+::-webkit-scrollbar-thumb {
+  background: #6c5ce7;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a29bfe;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
