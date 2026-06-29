@@ -19,6 +19,7 @@ const About = () => {
           <h2 className="section-title">MERN Stack <span className="gradient-text">Developer</span></h2>
           <p className="section-subtitle mx-auto mt-4">
             Building full-stack applications with MongoDB, Express.js, React, and Node.js.
+            Passionate about automation, Google Sheets, and modern web technologies.
           </p>
         </motion.div>
 
@@ -38,10 +39,22 @@ const About = () => {
               <div className="relative w-full h-full bg-[#14141f] rounded-3xl p-8 flex items-center 
                             justify-center border border-white/5">
                 <div className="text-center">
-                  <div className="text-8xl mb-4">👨‍💻</div>
-                  <h3 className="text-2xl font-bold mb-2 text-text-light">Buddy</h3>
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                    className="w-32 h-32 md:w-40 md:h-40 mx-auto mb-4 rounded-full overflow-hidden 
+              border-4 border-primary/30 shadow-xl shadow-primary/20
+              hover:border-primary/60 transition-all duration-300"
+                  >
+                    <img
+                      src="/PersonalPhoto.jpeg"
+                      alt="Kuldip Mori"
+                      className="w-full h-full object-cover"
+                    />
+                  </motion.div>
+                  <h3 className="text-2xl font-bold mb-2 text-text-light">Kuldip Mori</h3>
                   <p className="text-text-muted">MERN Stack Developer</p>
-                  <p className="text-xs text-primary font-semibold mt-2">1.5+ Years Experience</p>
+                  <p className="text-xs text-primary font-semibold mt-2">1.5 Years Experience</p>
                 </div>
               </div>
             </div>
@@ -55,10 +68,10 @@ const About = () => {
           >
             <h3 className="text-2xl font-bold mb-4 text-text-light">Who Am I?</h3>
             <p className="text-text-muted mb-6 leading-relaxed">
-              I'm a passionate MERN stack developer with 1.5+ years of experience 
-              building full-stack web applications. I specialize in the MERN stack:
+              I'm a passionate MERN stack developer with 1.5 years of experience
+              building full-stack web applications. I specialize in:
             </p>
-            
+
             <div className="grid grid-cols-2 gap-3 mb-6">
               {['MongoDB', 'Express.js', 'React.js', 'Node.js'].map((tech, index) => (
                 <motion.div
@@ -76,20 +89,48 @@ const About = () => {
             </div>
 
             <p className="text-text-muted leading-relaxed">
-              I've worked on 15+ projects ranging from e-commerce platforms to 
+              I've worked on multiple projects of MERN stack,
               real-time applications, RESTful APIs, and full-stack solutions.
+              I also specialize in Google Sheets automation, App Script, and
+              third-party integrations.
             </p>
 
             <div className="grid grid-cols-2 gap-4 mt-6">
               {[
-                { label: 'Experience', value: '1.5+ Years' },
-                { label: 'Projects', value: '15+' },
-                { label: 'Stack', value: 'MERN' },
-                { label: 'Location', value: 'Remote' },
+                {
+                  label: 'Experience',
+                  value: '1.5 Years'
+                },
+                {
+                  label: 'Current Company',
+                  value: 'Sutra Analytics PVT LTD',
+                  link: 'https://sutraanalytics.com/',
+                  isLink: true
+                },
+                {
+                  label: 'Stack',
+                  value: 'MERN'
+                },
+                {
+                  label: 'Location',
+                  value: 'Ahmedabad, Gujarat'
+                },
               ].map((item, index) => (
                 <div key={index} className="bg-[#14141f] rounded-xl p-4 border border-white/5">
                   <p className="text-xs text-text-muted">{item.label}</p>
-                  <p className="font-semibold text-text-light">{item.value}</p>
+                  {item.isLink ? (
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold text-primary hover:text-primary-light 
+                   transition-colors duration-300 hover:underline"
+                    >
+                      {item.value}
+                    </a>
+                  ) : (
+                    <p className="font-semibold text-text-light">{item.value}</p>
+                  )}
                 </div>
               ))}
             </div>

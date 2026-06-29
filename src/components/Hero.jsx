@@ -1,20 +1,18 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import {
+  SiMongodb,
+  SiExpress,
+  SiReact,
+  SiNodedotjs
+} from 'react-icons/si';
 
 const Hero = () => {
   // Function to handle CV download
   const handleDownloadCV = () => {
-    // Create a link element
     const link = document.createElement('a');
-
-    // Path to your CV file (place your CV in the public folder)
-    // For example: public/cv/buddy-cv.pdf
-    link.href = '/cv/buddy-cv.pdf';
-
-    // Set download filename
-    link.download = 'Buddy_MERN_Stack_Developer_CV.pdf';
-
-    // Append to body, click, and remove
+    link.href = '/cv/kuldip-mori-cv.pdf';
+    link.download = 'Kuldip_Mori_MERN_Stack_Developer_CV.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -22,7 +20,7 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center pt-20 pb-16 relative overflow-hidden">
-      {/* Animated Background - Dark Theme */}
+      {/* Animated Background */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-[-50%] right-[-20%] w-[600px] h-[600px] rounded-full 
                       bg-gradient-radial from-primary/10 to-transparent animate-float" />
@@ -48,7 +46,7 @@ const Hero = () => {
             className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full 
                      font-semibold text-sm mb-6 border border-primary/20"
           >
-            👋 Welcome to my world
+            👋 Hi, I'm Kuldip
           </motion.span>
 
           <motion.h1
@@ -67,9 +65,9 @@ const Hero = () => {
             transition={{ delay: 0.4 }}
             className="text-lg md:text-xl text-text-muted max-w-lg mb-8"
           >
-            I'm a passionate MERN stack developer with 1.5+ years of experience
-            building full-stack web applications. I specialize in MongoDB, Express.js,
-            React, and Node.js.
+            I build full-stack web applications using MongoDB, Express.js, React, and Node.js.
+            With 1.5 years of experience, I create scalable, user-friendly solutions
+            that solve real-world problems.
           </motion.p>
 
           <motion.div
@@ -107,8 +105,7 @@ const Hero = () => {
            bg-[length:200%_auto] hover:bg-[length:100%_auto] 
            text-white rounded-full font-semibold shadow-lg 
            shadow-primary/30 hover:shadow-primary/50 
-           transition-all duration-500 flex items-center gap-2
-           animate-gradient"
+           transition-all duration-500 flex items-center gap-2"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -125,31 +122,55 @@ const Hero = () => {
             transition={{ delay: 0.6 }}
             className="flex gap-8 mt-12 flex-wrap"
           >
-            {[
-              { number: '1.5+', label: 'Years Experience' },
-              { number: '15+', label: 'Projects Completed' },
-            ].map((stat, index) => (
-              <div key={index}>
-                <p className="text-3xl font-bold text-primary">{stat.number}</p>
-                <p className="text-sm text-text-muted">{stat.label}</p>
-              </div>
-            ))}
+            <div>
+              <p className="text-3xl font-bold text-primary">1.5</p>
+              <p className="text-sm text-text-muted">Years of Experience</p>
+            </div>
+            <div>
+              <a
+                href="https://sutraanalytics.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative inline-block"
+              >
+                <p className="text-3xl font-bold text-primary hover:text-primary-light 
+                   transition-colors duration-300">
+                  Sutra Analytics
+                </p>
+                {/* Underline animation */}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary 
+                       group-hover:w-full transition-all duration-300"></span>
+                <p className="text-sm text-text-muted mt-1">Current Company</p>
+              </a>
+            </div>
           </motion.div>
 
-          {/* MERN Stack Tags */}
+          {/* Tech Stack Tags with Original Icons */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7 }}
-            className="flex flex-wrap gap-2 mt-6"
+            className="flex flex-wrap gap-3 mt-6"
           >
-            {['MongoDB', 'Express.js', 'React.js', 'Node.js'].map((tech) => (
-              <span key={tech}
-                className="px-4 py-1.5 bg-primary/10 text-primary text-sm font-semibold 
-                             rounded-full border border-primary/20 shadow-lg shadow-primary/5">
-                {tech}
-              </span>
-            ))}
+            {[
+              { name: 'MongoDB', icon: SiMongodb, color: '#4DB33D' },
+              { name: 'Express.js', icon: SiExpress, color: '#FFFx' },
+              { name: 'React.js', icon: SiReact, color: '#61DAFB' },
+              { name: 'Node.js', icon: SiNodedotjs, color: '#339933' },
+            ].map((tech) => {
+              const Icon = tech.icon;
+              return (
+                <span
+                  key={tech.name}
+                  className="flex items-center gap-2 px-4 py-1.5 bg-primary/10 
+                           text-primary text-sm font-semibold rounded-full 
+                           border border-primary/20 shadow-lg shadow-primary/5"
+                >
+                  <Icon className="w-4 h-4" style={{ color: tech.color }} />
+                  {tech.name}
+                </span>
+              );
+            })}
           </motion.div>
         </motion.div>
 
@@ -179,41 +200,45 @@ const Hero = () => {
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-40 h-40 md:w-48 md:h-48 bg-[#1a1a2e] rounded-2xl shadow-2xl 
                             flex items-center justify-center flex-col p-6 border border-primary/20">
-                <div className="text-6xl mb-3">🚀</div>
+                <div className="text-6xl mb-3">👨‍💻</div>
                 <p className="text-sm font-bold text-center text-primary">MERN Stack</p>
                 <p className="text-xs text-text-muted text-center">Developer</p>
               </div>
             </div>
           </motion.div>
 
-          {/* Floating Tags */}
+          {/* Floating Tags with Original Icons */}
           <motion.div
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-10 right-0 bg-[#1a1a2e] px-4 py-2 rounded-full shadow-xl border border-primary/20"
+            className="absolute top-10 right-0 bg-[#1a1a2e] px-4 py-2 rounded-full shadow-xl border border-primary/20 flex items-center gap-2"
           >
-            <span className="text-sm font-semibold text-text-light">⚛️ React</span>
+            <SiReact className="w-4 h-4 text-[#61DAFB]" />
+            <span className="text-sm font-semibold text-text-light">React</span>
           </motion.div>
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            className="absolute bottom-10 left-0 bg-[#1a1a2e] px-4 py-2 rounded-full shadow-xl border border-primary/20"
+            className="absolute bottom-10 left-0 bg-[#1a1a2e] px-4 py-2 rounded-full shadow-xl border border-primary/20 flex items-center gap-2"
           >
-            <span className="text-sm font-semibold text-text-light">🟢 Node.js</span>
+            <SiNodedotjs className="w-4 h-4 text-[#339933]" />
+            <span className="text-sm font-semibold text-text-light">Node.js</span>
           </motion.div>
           <motion.div
             animate={{ y: [0, -8, 0] }}
             transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-            className="absolute top-1/2 -left-8 bg-[#1a1a2e] px-4 py-2 rounded-full shadow-xl border border-primary/20"
+            className="absolute top-1/2 -left-8 bg-[#1a1a2e] px-4 py-2 rounded-full shadow-xl border border-primary/20 flex items-center gap-2"
           >
-            <span className="text-sm font-semibold text-text-light">🍃 MongoDB</span>
+            <SiMongodb className="w-4 h-4 text-[#4DB33D]" />
+            <span className="text-sm font-semibold text-text-light">MongoDB</span>
           </motion.div>
           <motion.div
             animate={{ x: [0, -8, 0] }}
             transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-            className="absolute bottom-1/3 -right-6 bg-[#1a1a2e] px-4 py-2 rounded-full shadow-xl border border-primary/20"
+            className="absolute bottom-1/3 -right-6 bg-[#1a1a2e] px-4 py-2 rounded-full shadow-xl border border-primary/20 flex items-center gap-2"
           >
-            <span className="text-sm font-semibold text-text-light">⚡ Express</span>
+            <SiExpress className="w-4 h-4 text-white" />
+            <span className="text-sm font-semibold text-text-light">Express</span>
           </motion.div>
         </motion.div>
       </div>

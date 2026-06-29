@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+
 const Skills = () => {
   // All skills for marquee
   const allSkills = [

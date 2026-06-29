@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { GitBranch, Link2Icon, Mail } from 'lucide-react';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -27,7 +29,7 @@ const Footer = () => {
               Buddy<span className="text-primary">.</span>
             </h2>
             <p className="text-text-muted text-sm leading-relaxed">
-              MERN Stack Developer building full-stack applications with 
+              MERN Stack Developer building full-stack applications with
               MongoDB, Express.js, React, and Node.js.
             </p>
           </div>
@@ -38,8 +40,8 @@ const Footer = () => {
             <ul className="space-y-2">
               {['Home', 'About', 'Skills', 'Projects', 'Contact'].map((link) => (
                 <li key={link}>
-                  <a href={`#${link.toLowerCase()}`} 
-                     className="text-text-muted hover:text-primary transition-colors duration-200 text-sm">
+                  <a href={`#${link.toLowerCase()}`}
+                    className="text-text-muted hover:text-primary transition-colors duration-200 text-sm">
                     {link}
                   </a>
                 </li>
@@ -63,9 +65,9 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4 text-text-light">Get in Touch</h3>
             <div className="space-y-3">
-              <p className="text-text-muted text-sm">📧 buddy@example.com</p>
-              <p className="text-text-muted text-sm">📍 Remote</p>
-              <p className="text-text-muted text-sm">📱 +1 (555) 123-4567</p>
+              <p className="text-text-muted text-sm">📧 kuldipmori16@gmail.com</p>
+              <p className="text-text-muted text-sm">📍 Ahmedabad, Gujarat</p>
+              <p className="text-text-muted text-sm">📱 +91 9510539399</p>
             </div>
           </div>
         </div>
@@ -74,17 +76,45 @@ const Footer = () => {
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-text-muted text-sm">
-            © {currentYear} Buddy. All rights reserved. Made with 💜 & MERN Stack
+            © {currentYear} Kuldip Mori. All rights reserved
           </p>
           <div className="flex gap-3">
-            {['🐦', '💼', '📸', '🐙'].map((social) => (
-              <a key={social} href="#" 
-                 className="w-10 h-10 bg-[#14141f] rounded-full flex items-center justify-center 
-                          text-lg hover:bg-primary hover:text-white transition-all 
-                          duration-300 hover:scale-110 border border-white/5">
-                {social}
-              </a>
-            ))}
+            {[
+              {
+                icon: Mail,
+                label: 'Email',
+                href: 'mailto:kuldipmori16@gmail.com'
+              },
+              {
+                icon: FaLinkedin,
+                label: 'LinkedIn',
+                href: 'https://www.linkedin.com/in/kuldip-mori-b30b9923a/',
+                target: '_blank'
+              },
+              {
+                icon: FaGithub,
+                label: 'GitHub',
+                href: 'https://github.com/KuldipMori04',
+                target: '_blank'
+              }
+            ].map((social) => {
+              const Icon = social.icon;
+              return (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target={social.target || '_self'}
+                  rel={social.target === '_blank' ? 'noopener noreferrer' : ''}
+                  className="w-10 h-10 bg-[#14141f] rounded-full flex items-center justify-center 
+                           hover:bg-primary hover:text-white transition-all 
+                           duration-300 hover:scale-110 border border-white/5
+                           text-text-muted hover:text-white"
+                  aria-label={social.label}
+                >
+                  <Icon size={20} />
+                </a>
+              );
+            })}
           </div>
         </div>
       </div>

@@ -27,8 +27,8 @@ const Navbar = () => {
           whileHover={{ scale: 1.05 }}
           className="text-2xl md:text-3xl font-extrabold"
         >
-          <span className="text-text-light">Buddy</span>
-          <span className="text-primary">.</span>
+          <span className="text-text-light">Kuldip Mori</span>
+          {/* <span className="text-primary">.</span> */}
         </motion.div>
 
         {/* Desktop Menu */}
