@@ -11,8 +11,8 @@ const Hero = () => {
   // Function to handle CV download
   const handleDownloadCV = () => {
     const link = document.createElement('a');
-    link.href = '/cv/kuldip-mori-cv.pdf';
-    link.download = 'Kuldip_Mori_MERN_Stack_Developer_CV.pdf';
+    link.href = '/kuldip-resume.pdf';
+    link.download = 'Kuldip_Mori_MERN_Stack_Developer.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
